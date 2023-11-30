@@ -1,0 +1,82 @@
+## Install packages (official repository)
+pacman -S chromium git steam gamemode mangohud wine-staging
+
+## Install Yay - AUR Helper (community repository)
+git clone https://aur.archlinux.org/yay.git ~/yay
+cd ~/yay
+makepkg -si --noconfirm
+
+## Install packages (community repository)
+yay -S --noconfirm goverlay
+
+## Disable File Indexer (KDE Only)
+balooctl suspend && balooctl disable && balooctl purge
+
+## Install latest Mesa Driver (AMD Only)
+git clone https://github.com/Frogging-Family/mesa-git.git ~/mesa-git
+cd ~/mesa-git
+yes | makepkg -si
+
+
+
+
+7ZIP COMANDOS
+7ZIP Extract all archived files into custom path / new folder:
+7z x -onewfolder archivename
+
+Extract all without create folder:
+7z e archivename
+
+BORRAR COSAS DE YAY
+yay -Rns nombredel programa
+
+
+------
+xfce xfdesktop
+
+
+
+
+
+
+
+
+
+##FFMPEG
+EL BUENO - Arch Linux, pulse aduio, xfce4
+--------------------------
+ffmpeg -f x11grab -i :0.0 -f pulse -i alsa_output.pci-0000_00_1b.0.analog-stereo.monitor -ac 2 testideo.mkv
+--------------------------
+
+
+
+
+ffmpeg -f x11grab -s 2560x1440 -i :0.0+<screen-position> -r 30 /home/acherott/Desktop/recordings/output.mp4
+
+AV1
+ffmpeg -i input.mp4 -c:v libaom-av1 -crf 30 av1_test.mkv
+----
+
+PASADOD E VERGA
+ffmpeg -f alsa -ac 2 -i pulse -f x11grab -r 30 -s 2560x1440  -i :0.0 -acodec aac -vcodec libx264 -preset ultrafast -strict -2 -crf 0 -threads 0 /home/acherott/Desktop/recordings/output.mp4
+
+
+----------00000000000000--------------
+ffmpeg -f x11grab -i :0.0 -f alsa -ac 1 -i default testideo.mkv
+
+ffmpeg -f alsa -ac 2 -i pulse -acodec libmp3lame -ab 128k sometestfile.mp3
+
+
+------
+AUDIO
+ffmpeg -f pulse -i alsa_output.pci-0000_00_1b.0.analog-stereo.monitor -ac 2 recording.m4a
+
+ffmpeg -f x11grab -i :0.0 -f pulse -i alsa_output.pci-0000_00_1b.0.analog-stereo.monitor -ac 2 testideo.mkv
+
+
+
+
+MOUSE
+
+xinput --set-prop 'pointer:''Kingsis Peripherals ZOWIE Gaming mouse' 'libinput Accel Profile Enabled' 0, 1
+xinput --set-prop 'pointer:''Kingsis Peripherals ZOWIE Gaming mouse' 'libinput Accel Speed' -0.1
